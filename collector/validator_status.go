@@ -80,7 +80,7 @@ func (collector *ValidatorStatus) Collect(ch chan<- prometheus.Metric) {
 	// Rate handle
 
 	if rate, err := strconv.ParseFloat(validator.Validator.Commission.CommissionRates.Rate.String(), 64); err != nil {
-		// LOG
+		ch <- prometheus.NewInvalidMetric(collector.rateDesc, err)
 	} else {
 		ch <- prometheus.MustNewConstMetric(collector.rateDesc, prometheus.GaugeValue, rate, collector.validatorAddress, collector.chainID)
 	}
@@ -88,7 +88,7 @@ func (collector *ValidatorStatus) Collect(ch chan<- prometheus.Metric) {
 	// Share handle
 
 	if value, err := strconv.ParseFloat(validator.Validator.DelegatorShares.String(), 64); err != nil {
-		// LOG
+		ch <- prometheus.NewInvalidMetric(collector.votingDesc, err)
 	} else {
 		displayValue := value / math.Pow10(int(collector.exponent))
 		ch <- prometheus.MustNewConstMetric(collector.votingDesc, prometheus.GaugeValue, displayValue, collector.validatorAddress, collector.chainID)

@@ -52,7 +52,7 @@ func (collector *ValidatorCommissionGauge) Collect(ch chan<- prometheus.Metric) 
 
 	for _, commission := range distributionRes.Commission.Commission {
 		if value, err := strconv.ParseFloat(commission.Amount.String(), 64); err != nil {
-			// TODO LOGGING
+			ch <- prometheus.NewInvalidMetric(collector.desc, err)
 		} else {
 			displayValue := value / math.Pow10(int(collector.exponent))
 			ch <- prometheus.MustNewConstMetric(collector.desc, prometheus.GaugeValue, displayValue, collector.validatorAddress, collector.chainID, collector.denom)
