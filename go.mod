@@ -4,8 +4,9 @@ go 1.17
 
 require (
 	github.com/cosmos/cosmos-sdk v0.42.9
-	github.com/prometheus/client_golang v1.10.0
+	github.com/prometheus/client_golang v1.11.1
 	github.com/spf13/cobra v1.3.0
+	github.com/tendermint/tendermint v0.34.11
 	google.golang.org/grpc v1.42.0
 )
 
@@ -66,7 +67,7 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/prometheus/client_model v0.2.0 // indirect
-	github.com/prometheus/common v0.23.0 // indirect
+	github.com/prometheus/common v0.26.0 // indirect
 	github.com/prometheus/procfs v0.6.0 // indirect
 	github.com/rcrowley/go-metrics v0.0.0-20200313005456-10cdbea86bc0 // indirect
 	github.com/regen-network/cosmos-proto v0.3.1 // indirect
@@ -83,7 +84,6 @@ require (
 	github.com/tendermint/btcd v0.1.1 // indirect
 	github.com/tendermint/crypto v0.0.0-20191022145703-50d29ede1e15 // indirect
 	github.com/tendermint/go-amino v0.16.0 // indirect
-	github.com/tendermint/tendermint v0.34.11 // indirect
 	github.com/tendermint/tm-db v0.6.4 // indirect
 	github.com/zondax/hid v0.9.0 // indirect
 	go.etcd.io/bbolt v1.3.5 // indirect
